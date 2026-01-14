@@ -1,0 +1,160 @@
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_ssm_parameter.this[0]: Reading...
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_partition.current: Reading...
+module.ec2["loginext-ec2-instance"].data.aws_vpc.retrieve: Reading...
+module.ec2["loginext-ec2-instance"].aws_iam_instance_profile.test_profile[0]: Refreshing state... [id=loginext-ec2-instance]
+module.vpc.module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-07e1d4faec14cbb5f]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_partition.current: Read complete after 0s [id=aws]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_ssm_parameter.this[0]: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2]
+module.ec2["loginext-ec2-instance"].data.aws_vpc.retrieve: Read complete after 0s [id=vpc-07e1d4faec14cbb5f]
+module.ec2["loginext-ec2-instance"].data.aws_subnets.ec2_subnet: Reading...
+module.ec2["loginext-ec2-instance"].data.aws_subnets.ec2_subnet: Read complete after 0s [id=ap-south-1]
+module.ec2["loginext-ec2-instance"].random_integer.priority[0]: Refreshing state... [id=1]
+module.vpc.module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-031b9be90ea400e1b]
+module.vpc.module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-013b1bb1f340e0a51]
+module.vpc.module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-0cb92f82b9cb65d57]
+module.vpc.module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-0eba60d1279219ec0]
+module.vpc.module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-0300eddae8d560796]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0]: Refreshing state... [id=sg-0ee687aaba69ec645]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0]: Refreshing state... [id=sg-0e3ae3a6a308fff55]
+module.vpc.module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0418d31daf94da610]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0]: Refreshing state... [id=sgrule-2817866220]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[2]: Refreshing state... [id=sgrule-2837213328]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1]: Refreshing state... [id=sgrule-160455041]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0]: Refreshing state... [id=sgrule-3161571144]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0]: Refreshing state... [id=sgrule-1189847158]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0]: Refreshing state... [id=sgrule-529935653]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1]: Refreshing state... [id=sgrule-185594358]
+module.vpc.module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-00bdde3383e7fcd10]
+module.vpc.module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-0300eddae8d5607961080289494]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Refreshing state... [id=i-0123b401151ca237c]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # module.ec2["loginext-ec2-instance"].random_integer.priority[0] must be replaced
+-/+ resource "random_integer" "priority" {
+      ~ id      = "1" -> (known after apply)
+      ~ max     = 1 -> 0 # forces replacement
+      ~ result  = 1 -> (known after apply)
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0] must be replaced
+-/+ resource "aws_instance" "this" {
+      ~ arn                                  = "arn:aws:ec2:ap-south-1:525375332911:instance/i-0123b401151ca237c" -> (known after apply)
+      ~ availability_zone                    = "ap-south-1a" -> (known after apply)
+      ~ cpu_core_count                       = 1 -> (known after apply)
+      ~ cpu_threads_per_core                 = 2 -> (known after apply)
+      ~ disable_api_stop                     = false -> (known after apply)
+      ~ ebs_optimized                        = false -> (known after apply)
+      + enable_primary_ipv6                  = (known after apply)
+      - hibernation                          = false -> null
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      ~ id                                   = "i-0123b401151ca237c" -> (known after apply)
+      ~ instance_initiated_shutdown_behavior = "stop" -> (known after apply)
+      + instance_lifecycle                   = (known after apply)
+      ~ instance_state                       = "running" -> (known after apply)
+      ~ ipv6_address_count                   = 0 -> (known after apply)
+      ~ ipv6_addresses                       = [] -> (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      ~ placement_partition_number           = 0 -> (known after apply)
+      ~ primary_network_interface_id         = "eni-0cd1efba964468641" -> (known after apply)
+      ~ private_dns                          = "ip-10-0-5-129.ap-south-1.compute.internal" -> (known after apply)
+      ~ private_ip                           = "10.0.5.129" -> (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      ~ secondary_private_ips                = [] -> (known after apply)
+      ~ security_groups                      = [] -> (known after apply)
+      + spot_instance_request_id             = (known after apply)
+      ~ subnet_id                            = "subnet-0eba60d1279219ec0" # forces replacement -> (known after apply) # forces replacement
+        tags                                 = {
+            "Name" = "loginext-ec2-instance"
+            "Type" = "t3.micro"
+            "VPC"  = "vpc-07e1d4faec14cbb5f"
+        }
+      ~ tenancy                              = "default" -> (known after apply)
+      + user_data_base64                     = (known after apply)
+        # (12 unchanged attributes hidden)
+
+      - capacity_reservation_specification {
+          - capacity_reservation_preference = "open" -> null
+        }
+
+      ~ cpu_options {
+          + amd_sev_snp      = (known after apply)
+          ~ core_count       = 1 -> (known after apply)
+          ~ threads_per_core = 2 -> (known after apply)
+        }
+
+      ~ credit_specification {
+          - cpu_credits = "unlimited" -> null
+        }
+
+      ~ enclave_options {
+          ~ enabled = false -> (known after apply)
+        }
+
+      - maintenance_options {
+          - auto_recovery = "default" -> null
+        }
+
+      ~ metadata_options {
+          ~ instance_metadata_tags      = "disabled" -> (known after apply)
+            # (4 unchanged attributes hidden)
+        }
+
+      - private_dns_name_options {
+          - enable_resource_name_dns_a_record    = false -> null
+          - enable_resource_name_dns_aaaa_record = false -> null
+          - hostname_type                        = "ip-name" -> null
+        }
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/xvda" -> null
+          - encrypted             = false -> null
+          - iops                  = 3000 -> null
+          - tags                  = {} -> null
+          - tags_all              = {} -> null
+          - throughput            = 125 -> null
+          - volume_id             = "vol-058269d6e1347aab9" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp3" -> null
+        }
+
+        # (1 unchanged block hidden)
+    }
+
+Plan: 2 to add, 0 to change, 2 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: 
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Destroying... [id=i-0123b401151ca237c]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still destroying... [id=i-0123b401151ca237c, 10s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still destroying... [id=i-0123b401151ca237c, 20s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still destroying... [id=i-0123b401151ca237c, 30s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still destroying... [id=i-0123b401151ca237c, 40s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still destroying... [id=i-0123b401151ca237c, 50s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still destroying... [id=i-0123b401151ca237c, 1m0s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still destroying... [id=i-0123b401151ca237c, 1m10s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still destroying... [id=i-0123b401151ca237c, 1m20s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Destruction complete after 1m20s
+module.ec2["loginext-ec2-instance"].random_integer.priority[0]: Destroying... [id=1]
+module.ec2["loginext-ec2-instance"].random_integer.priority[0]: Destruction complete after 0s
+module.ec2["loginext-ec2-instance"].random_integer.priority[0]: Creating...
+module.ec2["loginext-ec2-instance"].random_integer.priority[0]: Creation complete after 0s [id=0]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Creating...
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still creating... [10s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Creation complete after 14s [id=i-0a8f02ae6b90eec70]
+
+Apply complete! Resources: 2 added, 0 changed, 2 destroyed.

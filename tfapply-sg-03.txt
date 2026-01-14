@@ -1,0 +1,139 @@
+module.vpc.module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-07e1d4faec14cbb5f]
+module.vpc.module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-0cb92f82b9cb65d57]
+module.vpc.module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-0eba60d1279219ec0]
+module.vpc.module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-013b1bb1f340e0a51]
+module.vpc.module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-0300eddae8d560796]
+module.vpc.module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-031b9be90ea400e1b]
+module.vpc.module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-0300eddae8d5607961080289494]
+module.vpc.module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0418d31daf94da610]
+module.vpc.module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-00bdde3383e7fcd10]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0] will be created
+  + resource "aws_security_group" "this_name_prefix" {
+      + arn                    = (known after apply)
+      + description            = "security group for loginext"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = (known after apply)
+      + name_prefix            = "loginext-sg-"
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "loginext-sg"
+          + "Role" = "management"
+          + "Type" = "security_group_pritnul"
+        }
+      + tags_all               = {
+          + "Name" = "loginext-sg"
+          + "Role" = "management"
+          + "Type" = "security_group_pritnul"
+        }
+      + vpc_id                 = "vpc-07e1d4faec14cbb5f"
+
+      + timeouts {
+          + create = "1m"
+          + delete = "15m"
+        }
+    }
+
+  # module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0] will be created
+  + resource "aws_security_group_rule" "egress_rules" {
+      + cidr_blocks              = [
+          + "0.0.0.0/0",
+        ]
+      + description              = "All protocols"
+      + from_port                = -1
+      + id                       = (known after apply)
+      + ipv6_cidr_blocks         = [
+          + "::/0",
+        ]
+      + prefix_list_ids          = []
+      + protocol                 = "-1"
+      + security_group_id        = (known after apply)
+      + security_group_rule_id   = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = -1
+      + type                     = "egress"
+    }
+
+  # module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0] will be created
+  + resource "aws_security_group_rule" "ingress_with_cidr_blocks" {
+      + cidr_blocks              = [
+          + "0.0.0.0/0",
+        ]
+      + description              = "Ingress Rule"
+      + from_port                = 80
+      + id                       = (known after apply)
+      + prefix_list_ids          = []
+      + protocol                 = "tcp"
+      + security_group_id        = (known after apply)
+      + security_group_rule_id   = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = 80
+      + type                     = "ingress"
+    }
+
+  # module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1] will be created
+  + resource "aws_security_group_rule" "ingress_with_cidr_blocks" {
+      + cidr_blocks              = [
+          + "0.0.0.0/0",
+        ]
+      + description              = "Ingress Rule"
+      + from_port                = 443
+      + id                       = (known after apply)
+      + prefix_list_ids          = []
+      + protocol                 = "tcp"
+      + security_group_id        = (known after apply)
+      + security_group_rule_id   = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = 443
+      + type                     = "ingress"
+    }
+
+  # module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[2] will be created
+  + resource "aws_security_group_rule" "ingress_with_cidr_blocks" {
+      + cidr_blocks              = [
+          + "0.0.0.0/0",
+        ]
+      + description              = "Ingress Rule"
+      + from_port                = 22
+      + id                       = (known after apply)
+      + prefix_list_ids          = []
+      + protocol                 = "tcp"
+      + security_group_id        = (known after apply)
+      + security_group_rule_id   = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = 22
+      + type                     = "ingress"
+    }
+
+Plan: 5 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: 
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0]: Creating...
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0]: Creation complete after 1s [id=sg-0e3ae3a6a308fff55]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1]: Creating...
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[2]: Creating...
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0]: Creating...
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0]: Creating...
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[2]: Creation complete after 1s [id=sgrule-2837213328]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1]: Creation complete after 1s [id=sgrule-185594358]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0]: Creation complete after 2s [id=sgrule-529935653]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0]: Creation complete after 2s [id=sgrule-2817866220]
+
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.

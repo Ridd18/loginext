@@ -1,0 +1,84 @@
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_ssm_parameter.this[0]: Reading...
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_partition.current: Reading...
+module.ec2["loginext-ec2-instance"].data.aws_vpc.retrieve: Reading...
+module.ec2["loginext-ec2-instance"].aws_iam_instance_profile.test_profile[0]: Refreshing state... [id=loginext-ec2-instance]
+module.vpc.module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-07e1d4faec14cbb5f]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_partition.current: Read complete after 0s [id=aws]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_ssm_parameter.this[0]: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2]
+module.ec2["loginext-ec2-instance"].data.aws_vpc.retrieve: Read complete after 0s [id=vpc-07e1d4faec14cbb5f]
+module.ec2["loginext-ec2-instance"].data.aws_subnets.ec2_subnet: Reading...
+module.vpc.module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-013b1bb1f340e0a51]
+module.vpc.module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-0eba60d1279219ec0]
+module.vpc.module.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-0408331c8d57b5921]
+module.vpc.module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-0300eddae8d560796]
+module.vpc.module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-0cb92f82b9cb65d57]
+module.vpc.module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-031b9be90ea400e1b]
+module.alb.aws_security_group.this["loginext-alb"]: Refreshing state... [id=sg-02a29c4641b3d4d5d]
+module.alb.aws_lb_target_group.this["loginext-alb"]: Refreshing state... [id=arn:aws:elasticloadbalancing:ap-south-1:525375332911:targetgroup/loginext-tg/7262d35f4b08ce98]
+module.ec2["loginext-ec2-instance"].data.aws_subnets.ec2_subnet: Read complete after 1s [id=ap-south-1]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0]: Refreshing state... [id=sg-0e3ae3a6a308fff55]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0]: Refreshing state... [id=sg-0ee687aaba69ec645]
+module.ec2["loginext-ec2-instance"].random_integer.priority[0]: Refreshing state... [id=0]
+module.alb.aws_lb.this["loginext-alb"]: Refreshing state... [id=arn:aws:elasticloadbalancing:ap-south-1:525375332911:loadbalancer/app/loginext-alb/b382b1d5e8a1ecf3]
+module.vpc.module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-00bdde3383e7fcd10]
+module.vpc.module.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0b3c8005e366909c1]
+module.vpc.module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-0300eddae8d5607961080289494]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1]: Refreshing state... [id=sgrule-185594358]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0]: Refreshing state... [id=sgrule-529935653]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0]: Refreshing state... [id=sgrule-1189847158]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1]: Refreshing state... [id=sgrule-160455041]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[2]: Refreshing state... [id=sgrule-2837213328]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0]: Refreshing state... [id=sgrule-2817866220]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0]: Refreshing state... [id=sgrule-3161571144]
+module.vpc.module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0418d31daf94da610]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Refreshing state... [id=i-0a8f02ae6b90eec70]
+module.alb.aws_lb_listener.this["loginext-alb"]: Refreshing state... [id=arn:aws:elasticloadbalancing:ap-south-1:525375332911:listener/app/loginext-alb/b382b1d5e8a1ecf3/e980ebb4d5b53a52]
+module.alb.aws_lb_target_group_attachment.this["loginext-alb-loginext-ec2-instance"]: Refreshing state... [id=arn:aws:elasticloadbalancing:ap-south-1:525375332911:targetgroup/loginext-tg/7262d35f4b08ce98-20260113154513915900000001]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0] will be updated in-place
+  ~ resource "aws_instance" "this" {
+        id                                   = "i-0a8f02ae6b90eec70"
+        tags                                 = {
+            "Name" = "loginext-ec2-instance"
+            "Type" = "t3.micro"
+            "VPC"  = "vpc-07e1d4faec14cbb5f"
+        }
+      ~ user_data                            = "bfe789b9927b2816d4f8326562b9bc184e11291f" -> "e001911c918c9d4ef8e7a8ef0580e9e51d225fcc"
+        # (31 unchanged attributes hidden)
+
+        # (9 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: 
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Modifying... [id=i-0a8f02ae6b90eec70]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still modifying... [id=i-0a8f02ae6b90eec70, 10s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still modifying... [id=i-0a8f02ae6b90eec70, 20s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still modifying... [id=i-0a8f02ae6b90eec70, 30s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Still modifying... [id=i-0a8f02ae6b90eec70, 40s elapsed]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Modifications complete after 43s [id=i-0a8f02ae6b90eec70]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+Outputs:
+
+alb_dns_name = {
+  "loginext-alb" = "loginext-alb-604029789.ap-south-1.elb.amazonaws.com"
+}
+ec2_instance_ids = {
+  "loginext-ec2-instance" = "i-0a8f02ae6b90eec70"
+}
+ec2_private_ips = {
+  "loginext-ec2-instance" = "10.0.1.116"
+}

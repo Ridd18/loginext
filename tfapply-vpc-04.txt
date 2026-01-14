@@ -1,0 +1,92 @@
+module.vpc.module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-07e1d4faec14cbb5f]
+module.vpc.module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-013b1bb1f340e0a51]
+module.vpc.module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-0eba60d1279219ec0]
+module.vpc.module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-0cb92f82b9cb65d57]
+module.vpc.module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-031b9be90ea400e1b]
+module.vpc.module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-0300eddae8d560796]
+module.vpc.module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0418d31daf94da610]
+module.vpc.module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-0300eddae8d5607961080289494]
+module.vpc.module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-00bdde3383e7fcd10]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.vpc.module.vpc.aws_route_table_association.public[1] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = "rtb-0300eddae8d560796"
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.module.vpc.aws_subnet.public[1] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "ap-south-1b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.7.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name"          = "loginext-vpc"
+          + "Type"          = "public"
+          + "resource-type" = "vpc"
+        }
+      + tags_all                                       = {
+          + "Name"          = "loginext-vpc"
+          + "Type"          = "public"
+          + "resource-type" = "vpc"
+        }
+      + vpc_id                                         = "vpc-07e1d4faec14cbb5f"
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Warning: Resource targeting is in effect
+
+You are creating a plan with the -target option, which means that the result of this plan may not represent all of the changes requested by
+the current configuration.
+
+The -target option is not for routine use, and is provided only for exceptional situations such as recovering from errors or mistakes, or when
+Terraform specifically suggests to use it as part of an error message.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: 
+module.vpc.module.vpc.aws_subnet.public[1]: Creating...
+module.vpc.module.vpc.aws_subnet.public[1]: Still creating... [10s elapsed]
+module.vpc.module.vpc.aws_subnet.public[1]: Creation complete after 11s [id=subnet-0408331c8d57b5921]
+module.vpc.module.vpc.aws_route_table_association.public[1]: Creating...
+module.vpc.module.vpc.aws_route_table_association.public[1]: Creation complete after 0s [id=rtbassoc-0b3c8005e366909c1]
+
+Warning: Applied changes may be incomplete
+
+The plan was created with the -target option in effect, so some changes requested in the configuration may have been ignored and the output
+values may not be fully updated. Run the following command to verify that no other changes are pending:
+    terraform plan
+	
+Note that the -target option is not suitable for routine use, and is provided only for exceptional situations such as recovering from errors
+or mistakes, or when Terraform specifically suggests to use it as part of an error message.
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+ec2_instance_ids = {
+  "loginext-ec2-instance" = "i-0a8f02ae6b90eec70"
+}
+ec2_private_ips = {
+  "loginext-ec2-instance" = "10.0.1.116"
+}

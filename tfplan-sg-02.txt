@@ -1,0 +1,51 @@
+module.vpc.module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-07e1d4faec14cbb5f]
+module.vpc.module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-0eba60d1279219ec0]
+module.vpc.module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-013b1bb1f340e0a51]
+module.vpc.module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-0300eddae8d560796]
+module.vpc.module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-0cb92f82b9cb65d57]
+module.vpc.module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-031b9be90ea400e1b]
+module.vpc.module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-00bdde3383e7fcd10]
+module.vpc.module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0418d31daf94da610]
+module.vpc.module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-0300eddae8d5607961080289494]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0] will be created
+  + resource "aws_security_group" "this_name_prefix" {
+      + arn                    = (known after apply)
+      + description            = "security group for loginext"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = (known after apply)
+      + name_prefix            = "loginext-sg-"
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "loginext-sg"
+          + "Role" = "management"
+          + "Type" = "security_group_pritnul"
+        }
+      + tags_all               = {
+          + "Name" = "loginext-sg"
+          + "Role" = "management"
+          + "Type" = "security_group_pritnul"
+        }
+      + vpc_id                 = "vpc-07e1d4faec14cbb5f"
+
+      + timeouts {
+          + create = "1m"
+          + delete = "15m"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

@@ -1,0 +1,212 @@
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_partition.current: Reading...
+module.ec2["loginext-ec2-instance"].data.aws_vpc.retrieve: Reading...
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_ssm_parameter.this[0]: Reading...
+module.ec2["loginext-ec2-instance"].aws_iam_instance_profile.test_profile[0]: Refreshing state... [id=loginext-ec2-instance]
+module.vpc.module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-07e1d4faec14cbb5f]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_partition.current: Read complete after 0s [id=aws]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.data.aws_ssm_parameter.this[0]: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2]
+module.ec2["loginext-ec2-instance"].data.aws_vpc.retrieve: Read complete after 0s [id=vpc-07e1d4faec14cbb5f]
+module.ec2["loginext-ec2-instance"].data.aws_subnets.ec2_subnet: Reading...
+module.ec2["loginext-ec2-instance"].data.aws_subnets.ec2_subnet: Read complete after 0s [id=ap-south-1]
+module.ec2["loginext-ec2-instance"].random_integer.priority[0]: Refreshing state... [id=0]
+module.vpc.module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-013b1bb1f340e0a51]
+module.vpc.module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-0eba60d1279219ec0]
+module.vpc.module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-0300eddae8d560796]
+module.vpc.module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-031b9be90ea400e1b]
+module.vpc.module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-0cb92f82b9cb65d57]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0]: Refreshing state... [id=sg-0ee687aaba69ec645]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group.this_name_prefix[0]: Refreshing state... [id=sg-0e3ae3a6a308fff55]
+module.vpc.module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-0300eddae8d5607961080289494]
+module.vpc.module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0418d31daf94da610]
+module.vpc.module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-00bdde3383e7fcd10]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0]: Refreshing state... [id=sgrule-529935653]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1]: Refreshing state... [id=sgrule-160455041]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[1]: Refreshing state... [id=sgrule-185594358]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[2]: Refreshing state... [id=sgrule-2837213328]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.ingress_with_cidr_blocks[0]: Refreshing state... [id=sgrule-1189847158]
+module.vote_service_sg["loginext-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0]: Refreshing state... [id=sgrule-2817866220]
+module.vote_service_sg["loginext-alb-sg"].module.vote_service_sg.aws_security_group_rule.egress_rules[0]: Refreshing state... [id=sgrule-3161571144]
+module.ec2["loginext-ec2-instance"].module.ec2-instance.aws_instance.this[0]: Refreshing state... [id=i-0a8f02ae6b90eec70]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.alb.aws_lb.this["loginext-alb"] will be created
+  + resource "aws_lb" "this" {
+      + arn                                                          = (known after apply)
+      + arn_suffix                                                   = (known after apply)
+      + client_keep_alive                                            = 3600
+      + desync_mitigation_mode                                       = "defensive"
+      + dns_name                                                     = (known after apply)
+      + drop_invalid_header_fields                                   = false
+      + enable_deletion_protection                                   = false
+      + enable_http2                                                 = true
+      + enable_tls_version_and_cipher_suite_headers                  = false
+      + enable_waf_fail_open                                         = false
+      + enable_xff_client_port                                       = false
+      + enable_zonal_shift                                           = false
+      + enforce_security_group_inbound_rules_on_private_link_traffic = (known after apply)
+      + id                                                           = (known after apply)
+      + idle_timeout                                                 = 60
+      + internal                                                     = false
+      + ip_address_type                                              = (known after apply)
+      + load_balancer_type                                           = "application"
+      + name                                                         = "loginext-alb"
+      + name_prefix                                                  = (known after apply)
+      + preserve_host_header                                         = false
+      + security_groups                                              = (known after apply)
+      + subnets                                                      = [
+          + "subnet-0eba60d1279219ec0",
+        ]
+      + tags_all                                                     = (known after apply)
+      + vpc_id                                                       = (known after apply)
+      + xff_header_processing_mode                                   = "append"
+      + zone_id                                                      = (known after apply)
+    }
+
+  # module.alb.aws_lb_listener.this["loginext-alb"] will be created
+  + resource "aws_lb_listener" "this" {
+      + arn                                                                   = (known after apply)
+      + id                                                                    = (known after apply)
+      + load_balancer_arn                                                     = (known after apply)
+      + port                                                                  = 80
+      + protocol                                                              = "HTTP"
+      + routing_http_request_x_amzn_mtls_clientcert_header_name               = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_issuer_header_name        = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_leaf_header_name          = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_subject_header_name       = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_validity_header_name      = (known after apply)
+      + routing_http_request_x_amzn_tls_cipher_suite_header_name              = (known after apply)
+      + routing_http_request_x_amzn_tls_version_header_name                   = (known after apply)
+      + routing_http_response_access_control_allow_credentials_header_value   = (known after apply)
+      + routing_http_response_access_control_allow_headers_header_value       = (known after apply)
+      + routing_http_response_access_control_allow_methods_header_value       = (known after apply)
+      + routing_http_response_access_control_allow_origin_header_value        = (known after apply)
+      + routing_http_response_access_control_expose_headers_header_value      = (known after apply)
+      + routing_http_response_access_control_max_age_header_value             = (known after apply)
+      + routing_http_response_content_security_policy_header_value            = (known after apply)
+      + routing_http_response_server_enabled                                  = (known after apply)
+      + routing_http_response_strict_transport_security_header_value          = (known after apply)
+      + routing_http_response_x_content_type_options_header_value             = (known after apply)
+      + routing_http_response_x_frame_options_header_value                    = (known after apply)
+      + ssl_policy                                                            = (known after apply)
+      + tags_all                                                              = (known after apply)
+      + tcp_idle_timeout_seconds                                              = (known after apply)
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+    }
+
+  # module.alb.aws_lb_target_group.this["loginext-alb"] will be created
+  + resource "aws_lb_target_group" "this" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = (known after apply)
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancer_arns                 = (known after apply)
+      + load_balancing_algorithm_type      = (known after apply)
+      + load_balancing_anomaly_mitigation  = (known after apply)
+      + load_balancing_cross_zone_enabled  = (known after apply)
+      + name                               = "loginext-tg"
+      + name_prefix                        = (known after apply)
+      + port                               = 80
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags_all                           = (known after apply)
+      + target_type                        = "instance"
+      + vpc_id                             = "vpc-07e1d4faec14cbb5f"
+
+      + health_check {
+          + enabled             = true
+          + healthy_threshold   = 2
+          + interval            = 30
+          + matcher             = "200"
+          + path                = "/"
+          + port                = "traffic-port"
+          + protocol            = "HTTP"
+          + timeout             = 5
+          + unhealthy_threshold = 2
+        }
+    }
+
+  # module.alb.aws_lb_target_group_attachment.this["loginext-alb-loginext-ec2-instance"] will be created
+  + resource "aws_lb_target_group_attachment" "this" {
+      + id               = (known after apply)
+      + port             = 80
+      + target_group_arn = (known after apply)
+      + target_id        = "i-0a8f02ae6b90eec70"
+    }
+
+  # module.alb.aws_security_group.this["loginext-alb"] will be created
+  + resource "aws_security_group" "this" {
+      + arn                    = (known after apply)
+      + description            = "Managed by Terraform"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+        ]
+      + name                   = "loginext-alb-sg"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags_all               = (known after apply)
+      + vpc_id                 = "vpc-07e1d4faec14cbb5f"
+    }
+
+Plan: 5 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + alb_dns_name     = {
+      + loginext-alb = (known after apply)
+    }
+  + ec2_instance_ids = {
+      + loginext-ec2-instance = "i-0a8f02ae6b90eec70"
+    }
+  + ec2_private_ips  = {
+      + loginext-ec2-instance = "10.0.1.116"
+    }
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
